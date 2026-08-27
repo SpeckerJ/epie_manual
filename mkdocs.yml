@@ -1,0 +1,37 @@
+site_name: ePiE Manual 
+
+nav:
+  - Home: index.md
+  - Manual Purpose: purp_scope_manual.md
+  - Theoretical Background: b_information.md
+  - 'How to: The ePiE App': how_to_webapp.md
+  - 'How to: The ePiE <i>R</i> package': how_to_R.md
+  - 'Advanced <i>R</i> Usage': advanced_R.md
+  - Model Interpretation: interpretation.md
+  - Glossary: glossary.md
+  
+  
+
+theme:
+  name: material
+  logo: img/logo/PREMIER_Logo.ico
+  favicon: img/logo/epie_manual_logo_V4.ico # This is the tab icon
+  features:
+    - navigation.footer
+    - content.footnote.tooltips
+    - content.code.copy
+  
+  palette:
+    primary: white
+
+markdown_extensions:
+  - attr_list
+  - footnotes
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - glightbox:
+
+copyright: © Copyright 2026 PREMIER Consortium

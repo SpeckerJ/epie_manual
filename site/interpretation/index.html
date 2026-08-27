@@ -1,0 +1,863 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../advanced_R/">
+      
+      
+        <link rel="next" href="../glossary/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../img/logo/epie_manual_logo_V4.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Model Interpretation - ePiE Manual</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#model-interpretation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ePiE Manual" class="md-header__button md-logo" aria-label="ePiE Manual" data-md-component="logo">
+      
+  <img src="../img/logo/PREMIER_Logo.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ePiE Manual
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Model Interpretation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ePiE Manual" class="md-nav__button md-logo" aria-label="ePiE Manual" data-md-component="logo">
+      
+  <img src="../img/logo/PREMIER_Logo.ico" alt="logo">
+
+    </a>
+    ePiE Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../purp_scope_manual/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Manual Purpose
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../b_information/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Theoretical Background
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how_to_webapp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to: The ePiE App
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how_to_R/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to: The ePiE <i>R</i> package
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced_R/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced <i>R</i> Usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model Interpretation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model Interpretation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#sources-of-uncertainty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sources of uncertainty
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-consumption-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API consumption data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#excreted-api-fraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Excreted API fraction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-physico-chemical-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Physico-chemical parameters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#emission-locations-hydrological-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Emission locations &amp; hydrological scenarios
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-interpretation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk Interpretation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#sources-of-uncertainty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sources of uncertainty
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-consumption-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API consumption data
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#excreted-api-fraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Excreted API fraction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-physico-chemical-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Physico-chemical parameters
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#emission-locations-hydrological-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Emission locations &amp; hydrological scenarios
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-interpretation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Risk Interpretation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="model-interpretation">Model Interpretation</h1>
+<h2 id="sources-of-uncertainty">Sources of uncertainty</h2>
+<p>Predictions are, by their very nature, ripe with uncertainty. As George Box famously stated, "<em>All models are wrong, but some are useful</em>". This sentiment underscores that models cannot accurately reflect and cover all details of reality, but are still useful for gaining important insights, provided that the model limitations are known. This is especially true for models and predictions concerning the environment due to the complexity involved. </p>
+<p>Predicting environmental concentrations relies on several key assumptions, which inherently introduce a certain level of uncertainty in the assessment. These uncertainties can be classified as fundamental or operational. While fundamental uncertainties are a consequence of the specific model assumptions, operational uncertainties relate to uncertainties in individual input parameters. For example, a fundamental uncertainty of ePiE is that it is assumed that all WWTPs have the same removal efficiency, while the particular value of this removal reflects an operational uncertainty. </p>
+<p>Accordingly, the predictions of the model are heavily influenced by its assumptions and the quality of the input data, which are the foundation of the model. Additional explanation surrounding these model assumptions and input parameters is provided in the following sections to aid users in the proper interpretation and usage of the model results.</p>
+<h2 id="api-consumption-data">API consumption data</h2>
+<p>Driving the entire modelling process, is the quality of the API consumption data. It directly influences the amount of API expected to end up in the environment. However, the availability for API consumption data can be limited, especially for APIs that are available as over the counter drugs (OTC). Notably, whether APIs are available as OTC drugs or only via prescription, can differ between countries, similar to where pharmaceuticals are sold and which sales data are collected. The PREMIER guidance on <em>Environmental Risk Assessment of Pharmaceuticals in Surface Water</em><sup id="fnref:10"><a class="footnote-ref" href="#fn:10">1</a></sup> provides detailed guidance on gathering API consumption data.</p>
+<p>An additional uncertainty of ePiE is the assumed uniform per capita API usage in a river basin. The assumption simplifies the model, but in reality API usage depends on demographic variables. For example, API usage will vary for regions with an older population as these typically consumer more and a greater variety of APIs than the younger population.</p>
+<h2 id="excreted-api-fraction">Excreted API fraction</h2>
+<p>Another critical factor for ePiE is human metabolism and how much of the administered API is excreted in its unchanged from (f_uf). For APIs, where large fractions are excreted, less precise data have less of an impact on the models results than for APIs where only small fractions are excreted. Exemplary, this is shown in the table below. For two APIs, A and B, with the same consumption, using inaccurate data for the excreted fraction, f_uf, results in a relative error of 5.6 % for API A with a high excretion fraction, compared to a 50 % error for API B with a low excretion fraction. </p>
+<table>
+<thead>
+<tr>
+<th>API</th>
+<th>A</th>
+<th>B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Consumption (kg/year)</td>
+<td>1000</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>True Fraction, f_uf (%)</td>
+<td>90</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Wrong Fraction, f_uf (%)</td>
+<td>85</td>
+<td>5</td>
+</tr>
+<tr>
+<td>True Load (kg/year)</td>
+<td>900</td>
+<td>100</td>
+</tr>
+<tr>
+<td>Wrong Load (kg/year)</td>
+<td>850</td>
+<td>50</td>
+</tr>
+<tr>
+<td>Absolute Error (kg/year)</td>
+<td>50</td>
+<td>50</td>
+</tr>
+<tr>
+<td>Relative Error (%)</td>
+<td>5.6</td>
+<td>50</td>
+</tr>
+</tbody>
+</table>
+<h2 id="api-physico-chemical-parameters">API Physico-chemical parameters</h2>
+<p>Next to the API consumption and the excreted fraction f_uf, the individual physico-chemical parameter influence the model. These parameters are interdependent and uncertainty in any one of them can propagate through the model. Schematically, this is shown below for the parameters that can be directly changed in ePiE under the "API Properties" tab.</p>
+<p>The molecular weight (MW), vapour pressure (Vp), and solubility (S) are used by ePiE to predict the Henry’s law coefficient (K_A,W). The Henry coefficient describes the partitioning of chemicals between the air and water phase. Uncertainty in any of these input parameters directly affects the estimated volatilisation potential. However, as APIs are generally designed to be (moderately) polar, they tend to remain in the water phase. Thus, model predictions will be mostly unaffected by uncertainties in these parameters.</p>
+<p>For each API, the fraction of the neutral and ionized forms is calculated and for each form individual partitioning coefficients are used. When these values are not known, these are again modelled. K_OW and pKa predict the Kp,DOC, and K_OW furthermore predicts the K_OC. K_OC in turn is used to derive the Kp_ps, Kp_as, Kp_susp, and the Kp_sd. This shows that K_OW is an important parameter that can have a significant influence on model predictions.  </p>
+<p>Accordingly, it is important to be aware of the quality of the input parameters used and if modelled or experimental values are used in the modelling process.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/flowchart_hierarchy.png" data-desc-position="bottom"><img src="../img/flowchart_hierarchy.png" alt="Draft Flowchart" style="width: 100%; max-width: 600px; height: auto;"></a></p>
+<figcaption>Figure X: Dummy caption</figcaption>
+
+<h2 id="emission-locations-hydrological-scenarios">Emission locations &amp; hydrological scenarios</h2>
+<p>ePiE considers two types of API emissions, i.e. discharges from WWTPs and discharges from the population fraction of an agglomeration not connected to a WWTP. ePiE allocates both types of emissions to the WWTP outlet. Accordingly, this means that river sections upstream of any WWTP outlet, do not receive any API inputs. However, this does not accurately reflect reality. In reality, there can be API discharges upstream of WWTPs, e.g. of solitaire houses in the upper basin.</p>
+<p>Moreover, ePiE assumes uniform WWTP treatment performance, overlooking regional differences. Accordingly, the model does not capture the operational variability between WWTPs. As such, removal rates for APIs can differ between individual WWTPs.</p>
+<p>Moreover, hydrological fluctuations are also to be expected, which can significantly influence environmental concentrations. During high flow events, dilution will be much higher than during low flow events. Moreover, during high-flow events, the possibility of sewer overflows increases, which can lead to the untreated emissions of the sewer into the environment.  </p>
+<p>Additional uncertainty is introduced by the fact that only WWTPs serving at least 2000 PE are covered, the hydrological flow data are based on the years 2000 - 2015, and a spatial resolution of 1x1 km. This means that smaller WWTPs and their discharges are not covered by ePiE and that long-term flow changes are not reflected. </p>
+<h2 id="risk-interpretation">Risk Interpretation</h2>
+<p>Several factors need to be considered when interpreting the calculated risk quotient.
+First of all, the quality of the applied risk threshold value is hugely influential. If possible, established environmental quality standards (EQSs) should be used for the assessment.<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">2</a></sup> Such quality standards are legally binding and based on standardised test guidelines. However, in case of an API without such established values using other data sources, or in special cases where the EQS is only based on a limited number of tests, the calculated risk quotient should be interpreted with care. </p>
+<p>Furthermore, ePiE is timely constrained and calculates only one PEC and accordingly only one RQ. Timely variations in environmental concentration are however to be expected which can be due to changes in API usage, API treatment regime, WWTP treatment train changes or upgrades, or hydrological changes.</p>
+<p>In the example below for ibuprofen, using an EQS of 140 ng/L<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">3</a></sup> and an average EU consumption of 8.6 mg per capita in 2019<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">4</a></sup>, for an average hydrological flow in the Rhine basin, we can see that risks are generally acceptable with the majority of values &lt;0.1. However, a substantial fraction of 40% lies between 0.1 and 1, and almost 8% between 1 and 10, and a small, but important fraction above 10. These high RQs indicate specific locations or conditions in the river basin where risks for the environment are likely. Moreover, it is important to keep in mind that in reality organisms in the environment are exposed to mixtures of APIs. In these instances, locations with RQ between 0.1 - 1 could still be problematic as all chemicals contribute to the overall effect.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>API  (ID)</strong></th>
+<th style="text-align: center;"><strong>Basin (ID)</strong></th>
+<th style="text-align: center;"><strong>Risk Quotient &lt; 0.1</strong></th>
+<th style="text-align: center;"><strong>Risk Quotient 0.1 - 1.0</strong></th>
+<th style="text-align: center;"><strong>Risk Quotient 1.0 - 10</strong></th>
+<th style="text-align: center;"><strong>Risk Quotient &gt; 10</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Ibuprofen</td>
+<td style="text-align: center;">124863</td>
+<td style="text-align: center;">51.98%</td>
+<td style="text-align: center;">40.4%</td>
+<td style="text-align: center;">7.42%</td>
+<td style="text-align: center;">0.2%</td>
+</tr>
+</tbody>
+</table>
+<p>Such specific cases, with a small fraction exceeding the RQ threshold, should also be considered under the perspective of changing hydrological regimens. Below, the data for ibuprofen are presented, including next to the average flow also the maximum and minimum. It becomes apparent that the fraction of RQs exceeding 1 is increasing substantially under low flow conditions. Selecting the proper scenario for a specific time window is therefore key to deriving appropriate RQs. However, as aforementioned, the underlying hydrological data may not fully capture future scenarios.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>API  (ID)</strong></th>
+<th style="text-align: center;"><strong>Basin (ID)</strong></th>
+<th style="text-align: center;">Hydrological Flow</th>
+<th style="text-align: center;"><strong>Risk Quotient &lt; 0.1</strong></th>
+<th style="text-align: center;"><strong>Risk Quotient 0.1 - 1.0</strong></th>
+<th style="text-align: center;"><strong>Risk Quotient 1.0 - 10</strong></th>
+<th style="text-align: center;"><strong>Risk Quotient &gt; 10</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Ibuprofen</td>
+<td style="text-align: center;">124863</td>
+<td style="text-align: center;">Maximum</td>
+<td style="text-align: center;">65.6%</td>
+<td style="text-align: center;">32.79%</td>
+<td style="text-align: center;">1.55%</td>
+<td style="text-align: center;">0.06%</td>
+</tr>
+<tr>
+<td style="text-align: center;">Ibuprofen</td>
+<td style="text-align: center;">124863</td>
+<td style="text-align: center;">Average</td>
+<td style="text-align: center;">51.98%</td>
+<td style="text-align: center;">40.4%</td>
+<td style="text-align: center;">7.42%</td>
+<td style="text-align: center;">0.2%</td>
+</tr>
+<tr>
+<td style="text-align: center;">Ibuprofen</td>
+<td style="text-align: center;">124863</td>
+<td style="text-align: center;">Minimum</td>
+<td style="text-align: center;">42%</td>
+<td style="text-align: center;">28.43%</td>
+<td style="text-align: center;">27.69%</td>
+<td style="text-align: center;">1.87%</td>
+</tr>
+</tbody>
+</table>
+<div class="footnote">
+<hr>
+<ol>
+<li id="fn:10">
+<p>Insert link in final version&nbsp;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+<li id="fn:4">
+<p>To add: Recent paper of Moermond et al. 2026&nbsp;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 2 in the text">↩</a></p>
+</li>
+<li id="fn:1">
+<p>Proposed EQS in the WFD recast. To do: Add link and double check the proposal&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 3 in the text">↩</a></p>
+</li>
+<li id="fn:2">
+<p>Cannata et al. 2024. To do: Add citation&nbsp;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 4 in the text">↩</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer">
+        
+          
+          <a href="../advanced_R/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Advanced &lt;i&gt;R&lt;/i&gt; Usage">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Advanced <i>R</i> Usage
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../glossary/" class="md-footer__link md-footer__link--next" aria-label="Next: Glossary">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Glossary
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © Copyright 2026 PREMIER Consortium
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.footer", "content.footnote.tooltips", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
