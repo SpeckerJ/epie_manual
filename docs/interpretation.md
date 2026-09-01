@@ -12,7 +12,7 @@ Accordingly, the predictions of the model are heavily influenced by its assumpti
 ## API consumption data
  
 Driving the entire modelling process, is the quality of the API consumption data. It directly influences the amount of API expected to end up in the environment. However, the availability for API consumption data can be limited, especially for APIs that are available as over the counter drugs (OTC). Notably, whether APIs are available as OTC drugs or only via prescription, can differ between countries, similar to where pharmaceuticals are sold and which sales data are collected. The PREMIER guidance on *Environmental Risk Assessment of Pharmaceuticals in Surface Water*[^10] provides detailed guidance on gathering API consumption data.
-[^10]:Insert link in final version
+[^10]:Link to be included
 
 An additional uncertainty of ePiE is the assumed uniform per capita API usage in a river basin. The assumption simplifies the model, but in reality API usage depends on demographic variables. For example, API usage will vary for regions with an older population as these typically consumer more and a greater variety of APIs than the younger population.
 
@@ -49,7 +49,7 @@ Accordingly, it is important to be aware of the quality of the input parameters 
 
 ## Emission locations & hydrological scenarios
 
-ePiE considers two types of API emissions, i.e. discharges from WWTPs and discharges from the population fraction of an agglomeration not connected to a WWTP. ePiE allocates both types of emissions to the WWTP outlet. Accordingly, this means that river sections upstream of any WWTP outlet, do not receive any API inputs. However, this does not accurately reflect reality. In reality, there can be API discharges upstream of WWTPs, e.g. of solitaire houses in the upper basin.
+ePiE considers two types of API emissions, i.e. discharges from WWTPs and discharges from the population fraction of an agglomeration not connected to a WWTP. ePiE allocates both types of emissions to the WWTP outlet. Accordingly, this means that river sections upstream of any WWTP outlet, do not receive any API inputs. However, this does not accurately reflect reality. In reality, there can be API discharges upstream of WWTPs, e.g. of solitaire houses in the upper basin. This means that there will be predictions containing NA values and their influence on the data should be investigated. This is shown in the section "Advanced *R* Usage".
 
 Moreover, ePiE assumes uniform WWTP treatment performance, overlooking regional differences. Accordingly, the model does not capture the operational variability between WWTPs. As such, removal rates for APIs can differ between individual WWTPs.
 
@@ -60,9 +60,9 @@ Additional uncertainty is introduced by the fact that only WWTPs serving at leas
 ## Risk Interpretation
 
 Several factors need to be considered when interpreting the calculated risk quotient.
-First of all, the quality of the applied risk threshold value is hugely influential. If possible, established environmental quality standards (EQSs) should be used for the assessment.[^4] Such quality standards are legally binding and based on standardised test guidelines. However, in case of an API without such established values using other data sources, or in special cases where the EQS is only based on a limited number of tests, the calculated risk quotient should be interpreted with care. 
+First of all, the quality of the applied risk threshold value is hugely influential. If possible, established environmental quality standards (EQSs) should be used for the assessment[^4]. Such quality standards are legally binding and based on standardised test guidelines. However, in case of an API without such established values using other data sources, or in special cases where the EQS is only based on a limited number of tests, the calculated risk quotient should be interpreted with care. 
 
-[^4]: To add: Recent paper of Moermond et al. 2026
+[^4]: [Moermond, C.T.A., Ågerstrand, M., Backhaus, T. et al. Evaluating the usefulness of existing environmental threshold concentrations (ETCs), with a focus on pharmaceuticals in surface water: a European perspective. Environ Sci Eur 38, 152 (2026). https://doi.org/10.1186/s12302-026-01428-2](https://doi.org/10.1186/s12302-026-01428-2)
 
 Furthermore, ePiE is timely constrained and calculates only one PEC and accordingly only one RQ. Timely variations in environmental concentration are however to be expected which can be due to changes in API usage, API treatment regime, WWTP treatment train changes or upgrades, or hydrological changes.
 
@@ -76,8 +76,9 @@ In the example below for ibuprofen, using an EQS of 140 ng/L[^1] and an average 
 
 Such specific cases, with a small fraction exceeding the RQ threshold, should also be considered under the perspective of changing hydrological regimens. Below, the data for ibuprofen are presented, including next to the average flow also the maximum and minimum. It becomes apparent that the fraction of RQs exceeding 1 is increasing substantially under low flow conditions. Selecting the proper scenario for a specific time window is therefore key to deriving appropriate RQs. However, as aforementioned, the underlying hydrological data may not fully capture future scenarios.
 
-[^1]: Proposed EQS in the WFD recast. To do: Add link and double check the proposal
-[^2]: Cannata et al. 2024. To do: Add citation
+[^1]: [Proposed EQS in the recast of the water framework directive.](https://health.ec.europa.eu/publications/scheer-scientific-opinion-draft-environmental-quality-standards-priority-substances-under-water-6_en)
+[^2]:[Cannata, C., Backhaus, T., Bramke, I., Caraman, M., Lombardo, A., Whomsley, R., Moermond, C.T.A., Ragas, A.M.J., 2024. Prioritisation of data-poor pharmaceuticals for empirical testing and environmental risk assessment. Environ. Int. 183, 108379. https://doi.org/10.1016/j.envint.2023.108379](https://doi.org/10.1016/j.envint.2023.108379)
+
 
 | **API  (ID)** | **Basin (ID)** | Hydrological Flow | **Risk Quotient < 0.1** | **Risk Quotient 0.1 - 1.0** | **Risk Quotient 1.0 - 10** | **Risk Quotient > 10** |
 |:-------------:|:--------------:|:-----------------:|:-----------------------:|:---------------------------:|:--------------------------:|:----------------------:|

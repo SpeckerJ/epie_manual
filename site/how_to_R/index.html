@@ -1014,7 +1014,7 @@ model and attaches it to an object called “results”.</p>
 </tr>
 <tr>
 <td>Q</td>
-<td>Water flow <mark>[m3 s‐1]</mark></td>
+<td>Water flow [m3 s‐1]</td>
 </tr>
 <tr>
 <td>C_w</td>
@@ -1045,10 +1045,8 @@ below.</p>
 </code></pre>
 <p>Which produces an interactive map as seen below. Grey colours indicate NA values and blue and red colour indicating low and high PECs.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/screenshots/R_epie/map_PEC.png" data-desc-position="bottom"><img src="../img/screenshots/R_epie/map_PEC.png" alt="img3" style="width: 100%; max-width: 600px; height: 50%;"></a></p>
-<figcaption>Figure X: Dummy caption.</figcaption>
-
 <h2 id="output-statistics">Output statistics</h2>
-<p>Next we want to calculate summary statistics for the predicted concentrations. For this, we are using functionalities provided by the <code>dplyr</code> package. If you do not have <code>dplyr</code> installed, please install it. Alternatively, you can also install the <code>tidyverse</code>, which is a collection of packages that are frequently used to analyse and visualise data.</p>
+<p>Next we want to calculate summary statistics for the predicted concentrations. For this, we are using functionalities provided by the <code>dplyr</code> package. If you do not have <code>dplyr</code> installed, please install it. Alternatively, you can also install and load the <code>tidyverse</code>, which is a collection of packages that are frequently used to analyse and visualise data.</p>
 <pre><code class="language-R">library(dplyr)
 
 PEC_summary_stats &lt;- results$pts %&gt;%
@@ -1106,7 +1104,7 @@ rq_colors_named &lt;- c("&gt; 10"    = "#B2182B",
                      "0.1 – 1" = "#92C5DE",
                      "&lt; 0.1"   = "#2166AC")
 
-df_sf_rq &lt;- RQ |&gt;
+df_sf_rq &lt;- RQ %&gt;%
   filter(API == "Ibuprofen", flow == "avg", basin_id == "107287") |&gt;
   mutate(RQ     = ifelse(is.nan(RQ), NA_real_, RQ),
          RQ_cat = cut(RQ,
@@ -1143,17 +1141,8 @@ Reduce("+", map_list_rq)@map |&gt;
 </code></pre>
 <p>Which produces the following map:</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/screenshots/R_epie/map_RQ.png" data-desc-position="bottom"><img src="../img/screenshots/R_epie/map_RQ.png" alt="img3" style="width: 100%; max-width: 600px; height: 50%;"></a></p>
-<figcaption>Figure X: Dummy caption. <br>
-<mark>Note: The above figure is wrong. Different PNEC.
-</mark></figcaption>
-
 <p>Additionally, the code above also allows to filter between node types by selecting the node type of interest on the left side. For example, only WWTPs could be plotted. </p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../img/screenshots/R_epie/map_RQ_WWTP.png" data-desc-position="bottom"><img src="../img/screenshots/R_epie/map_RQ_WWTP.png" alt="img3" style="width: 100%; max-width: 600px; height: 50%;"></a></p>
-<figcaption>Figure X: Dummy caption. <br>
-<mark>Note: The above figure is wrong. Different PNEC.
-
-</mark></figcaption>
-
 <div class="footnote">
 <hr>
 <ol>

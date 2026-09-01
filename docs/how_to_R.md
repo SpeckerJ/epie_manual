@@ -27,7 +27,7 @@
 When opening RStudio you should see a similar window as the one below. 
 
 <img src="../img/screenshots/R_epie/RStudio_Interface.png" alt="img2" style="width: 100%; max-width: 600px; height: 50%;" />
-<figcaption>Figure X: Dummy caption.</figcaption>
+
 
 RStudio is divided into four main panels:
 
@@ -288,7 +288,7 @@ We can see in the output the `results` object is a list, containing two data fra
 | Hylak_id| ID of a lake node |
 | x| X-coordinates of an individual node |
 | y| Y-coordinates of an individual node |
-| Q| Water flow <mark>[m3 s‐1] |
+| Q| Water flow [m3 s‐1] |
 | C_w| Predicted concentration in the water [µg/L]|
 | C_sd| Predicted concentration in the sediment [µg/kg]|
 | WWTPremoval| (Predicted) removal in the WWTP |
@@ -308,11 +308,11 @@ InteractiveResultMap(results, basin_id = basin_ids[2], cex = 4) # Ouse
 Which produces an interactive map as seen below. Grey colours indicate NA values and blue and red colour indicating low and high PECs.
 
 <img src="../img/screenshots/R_epie/map_PEC.png" alt="img3" style="width: 100%; max-width: 600px; height: 50%;" />
-<figcaption>Figure X: Dummy caption.</figcaption>
+
 
 ## Output statistics
 
-Next we want to calculate summary statistics for the predicted concentrations. For this, we are using functionalities provided by the `dplyr` package. If you do not have `dplyr` installed, please install it. Alternatively, you can also install the `tidyverse`, which is a collection of packages that are frequently used to analyse and visualise data.
+Next we want to calculate summary statistics for the predicted concentrations. For this, we are using functionalities provided by the `dplyr` package. If you do not have `dplyr` installed, please install it. Alternatively, you can also install and load the `tidyverse`, which is a collection of packages that are frequently used to analyse and visualise data.
 
 ```R
 library(dplyr)
@@ -383,7 +383,7 @@ rq_colors_named <- c("> 10"    = "#B2182B",
                      "0.1 – 1" = "#92C5DE",
                      "< 0.1"   = "#2166AC")
 
-df_sf_rq <- RQ |>
+df_sf_rq <- RQ %>%
   filter(API == "Ibuprofen", flow == "avg", basin_id == "107287") |>
   mutate(RQ     = ifelse(is.nan(RQ), NA_real_, RQ),
          RQ_cat = cut(RQ,
@@ -421,18 +421,13 @@ Reduce("+", map_list_rq)@map |>
 Which produces the following map:
 
 <img src="../img/screenshots/R_epie/map_RQ.png" alt="img3" style="width: 100%; max-width: 600px; height: 50%;" />
-<figcaption>Figure X: Dummy caption. <br>
-<mark>Note: The above figure is wrong. Different PNEC.
-</figcaption>
+
 
 
  Additionally, the code above also allows to filter between node types by selecting the node type of interest on the left side. For example, only WWTPs could be plotted. 
 
  <img src="../img/screenshots/R_epie/map_RQ_WWTP.png" alt="img3" style="width: 100%; max-width: 600px; height: 50%;" />
-<figcaption>Figure X: Dummy caption. <br>
-<mark>Note: The above figure is wrong. Different PNEC.
 
-</figcaption>
 
 
  

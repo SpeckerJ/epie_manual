@@ -667,13 +667,13 @@
 <figcaption>Figure X: Dummy caption</figcaption>
 
 <h2 id="emission-locations-hydrological-scenarios">Emission locations &amp; hydrological scenarios</h2>
-<p>ePiE considers two types of API emissions, i.e. discharges from WWTPs and discharges from the population fraction of an agglomeration not connected to a WWTP. ePiE allocates both types of emissions to the WWTP outlet. Accordingly, this means that river sections upstream of any WWTP outlet, do not receive any API inputs. However, this does not accurately reflect reality. In reality, there can be API discharges upstream of WWTPs, e.g. of solitaire houses in the upper basin.</p>
+<p>ePiE considers two types of API emissions, i.e. discharges from WWTPs and discharges from the population fraction of an agglomeration not connected to a WWTP. ePiE allocates both types of emissions to the WWTP outlet. Accordingly, this means that river sections upstream of any WWTP outlet, do not receive any API inputs. However, this does not accurately reflect reality. In reality, there can be API discharges upstream of WWTPs, e.g. of solitaire houses in the upper basin. This means that there will be predictions containing NA values and their influence on the data should be investigated. This is shown in the section "Advanced <em>R</em> Usage".</p>
 <p>Moreover, ePiE assumes uniform WWTP treatment performance, overlooking regional differences. Accordingly, the model does not capture the operational variability between WWTPs. As such, removal rates for APIs can differ between individual WWTPs.</p>
 <p>Moreover, hydrological fluctuations are also to be expected, which can significantly influence environmental concentrations. During high flow events, dilution will be much higher than during low flow events. Moreover, during high-flow events, the possibility of sewer overflows increases, which can lead to the untreated emissions of the sewer into the environment.  </p>
 <p>Additional uncertainty is introduced by the fact that only WWTPs serving at least 2000 PE are covered, the hydrological flow data are based on the years 2000 - 2015, and a spatial resolution of 1x1 km. This means that smaller WWTPs and their discharges are not covered by ePiE and that long-term flow changes are not reflected. </p>
 <h2 id="risk-interpretation">Risk Interpretation</h2>
 <p>Several factors need to be considered when interpreting the calculated risk quotient.
-First of all, the quality of the applied risk threshold value is hugely influential. If possible, established environmental quality standards (EQSs) should be used for the assessment.<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">2</a></sup> Such quality standards are legally binding and based on standardised test guidelines. However, in case of an API without such established values using other data sources, or in special cases where the EQS is only based on a limited number of tests, the calculated risk quotient should be interpreted with care. </p>
+First of all, the quality of the applied risk threshold value is hugely influential. If possible, established environmental quality standards (EQSs) should be used for the assessment<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">2</a></sup>. Such quality standards are legally binding and based on standardised test guidelines. However, in case of an API without such established values using other data sources, or in special cases where the EQS is only based on a limited number of tests, the calculated risk quotient should be interpreted with care. </p>
 <p>Furthermore, ePiE is timely constrained and calculates only one PEC and accordingly only one RQ. Timely variations in environmental concentration are however to be expected which can be due to changes in API usage, API treatment regime, WWTP treatment train changes or upgrades, or hydrological changes.</p>
 <p>In the example below for ibuprofen, using an EQS of 140 ng/L<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">3</a></sup> and an average EU consumption of 8.6 mg per capita in 2019<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">4</a></sup>, for an average hydrological flow in the Rhine basin, we can see that risks are generally acceptable with the majority of values &lt;0.1. However, a substantial fraction of 40% lies between 0.1 and 1, and almost 8% between 1 and 10, and a small, but important fraction above 10. These high RQs indicate specific locations or conditions in the river basin where risks for the environment are likely. Moreover, it is important to keep in mind that in reality organisms in the environment are exposed to mixtures of APIs. In these instances, locations with RQ between 0.1 - 1 could still be problematic as all chemicals contribute to the overall effect.</p>
 <table>
@@ -745,16 +745,16 @@ First of all, the quality of the applied risk threshold value is hugely influent
 <hr>
 <ol>
 <li id="fn:10">
-<p>Insert link in final version&nbsp;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 1 in the text">↩</a></p>
+<p>Link to be included&nbsp;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 1 in the text">↩</a></p>
 </li>
 <li id="fn:4">
-<p>To add: Recent paper of Moermond et al. 2026&nbsp;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 2 in the text">↩</a></p>
+<p><a href="https://doi.org/10.1186/s12302-026-01428-2">Moermond, C.T.A., Ågerstrand, M., Backhaus, T. et al. Evaluating the usefulness of existing environmental threshold concentrations (ETCs), with a focus on pharmaceuticals in surface water: a European perspective. Environ Sci Eur 38, 152 (2026). https://doi.org/10.1186/s12302-026-01428-2</a>&nbsp;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 2 in the text">↩</a></p>
 </li>
 <li id="fn:1">
-<p>Proposed EQS in the WFD recast. To do: Add link and double check the proposal&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 3 in the text">↩</a></p>
+<p><a href="https://health.ec.europa.eu/publications/scheer-scientific-opinion-draft-environmental-quality-standards-priority-substances-under-water-6_en">Proposed EQS in the recast of the water framework directive.</a>&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 3 in the text">↩</a></p>
 </li>
 <li id="fn:2">
-<p>Cannata et al. 2024. To do: Add citation&nbsp;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 4 in the text">↩</a></p>
+<p><a href="https://doi.org/10.1016/j.envint.2023.108379">Cannata, C., Backhaus, T., Bramke, I., Caraman, M., Lombardo, A., Whomsley, R., Moermond, C.T.A., Ragas, A.M.J., 2024. Prioritisation of data-poor pharmaceuticals for empirical testing and environmental risk assessment. Environ. Int. 183, 108379. https://doi.org/10.1016/j.envint.2023.108379</a>&nbsp;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 4 in the text">↩</a></p>
 </li>
 </ol>
 </div>
